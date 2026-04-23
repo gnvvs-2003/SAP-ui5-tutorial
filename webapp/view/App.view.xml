@@ -12,6 +12,10 @@
                             viewName="ui5.walkthrough.view.HelloPanel"
                             async="true"
                         />
+                        <mvc:XMLView
+                            viewName="ui5.walkthrough.view.InvoiceList"
+                            async="true"
+                        />
                     </content>
                 </Page>
             </pages>
