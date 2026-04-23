@@ -8,13 +8,8 @@ sap.ui.define(
         return UIComponent.extend("ui5.walkthrough.Component",{
             /// Metadata : Key configuration
             metadata : {
-                "interfaces":["sap.ui.core.IAsyncContentCreation"],
-                "rootView":{
-                    "viewName":"ui5.walkthrough.view.App",
-                    "type":"XML",
-                    "async":true,
-                    "id":"app"
-                }
+                interfaces:["sap.ui.core.IAsyncContentCreation"],
+                manifest:"json"
             },
             /// Init function
             init(){
@@ -28,12 +23,6 @@ sap.ui.define(
                 };
                 const oModel = new JSONModel(oData);
                 this.setModel(oModel);
-
-                // resource model
-                const oResourceModel = new ResourceModel({
-                    bundleName : "ui5.walkthrough.i18n.i18n"
-                });
-                this.setModel(oResourceModel,"i18n");
             }
         })
     }
