@@ -7,29 +7,16 @@ sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
         "sap/m/MessageToast",
-        "sap/ui/model/json/JSONModel"
-    ],(Controller,MessageToast,JSONModel)=>{
+    ],(Controller,MessageToast)=>{
         "use strict";
         return Controller.extend("ui5.walkthrough.controller.App",{
-            /// Init function
-            onInit : function(){
-                const oModel = new JSONModel({
-                    recipient : {
-                        name : "GNVVS"
-                    }
-                });
-                // connects the model to the view
-                this.getView().setModel(oModel);
-            },
-
             /// Functions used in the "App.view.xml"
-
-            /**
-             * @description : This function is used to show the message toast
-             * @returns : void
-             */
             onShowHello : function(){
-                MessageToast.show("Hello World!!!");
+                // Reads msg from i18n model
+                const oBundle = this.getView().getModel("i18n").getResourceBundle();
+                const sRecipient = this.getView().getModel().getProperty("/recipient/name");// gets name from Json model
+                const sMsg = oBundle.getText("helloMsg",[sRecipient]);
+                MessageToast.show(sMsg);
             }
 
         })
