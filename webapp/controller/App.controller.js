@@ -6,10 +6,22 @@
 sap.ui.define(
     [
         "sap/ui/core/mvc/Controller",
-        "sap/m/MessageToast"
-    ],(Controller,MessageToast)=>{
+        "sap/m/MessageToast",
+        "sap/ui/model/json/JSONModel"
+    ],(Controller,MessageToast,JSONModel)=>{
         "use strict";
         return Controller.extend("ui5.walkthrough.controller.App",{
+            /// Init function
+            onInit : function(){
+                const oModel = new JSONModel({
+                    recipient : {
+                        name : "GNVVS"
+                    }
+                });
+                // connects the model to the view
+                this.getView().setModel(oModel);
+            },
+
             /// Functions used in the "App.view.xml"
 
             /**
@@ -19,7 +31,7 @@ sap.ui.define(
             onShowHello : function(){
                 MessageToast.show("Hello World!!!");
             }
-            
+
         })
     }
 )

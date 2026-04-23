@@ -4,4 +4,5 @@
     controllerName="ui5.walkthrough.controller.App"
 >
     <Button text="Say Hello World" press=".onShowHello"/>
+    <Input value = "{/recipient/name}" valueLiveUpdate="true" description="Hello {/recipient/name}" width="60%"/>
 </mvc:View>
