@@ -4,13 +4,22 @@
  */
 
 sap.ui.define(
-    ["sap/ui/core/mvc/Controller"],(Controller)=>{
+    [
+        "sap/ui/core/mvc/Controller",
+        "sap/m/MessageToast"
+    ],(Controller,MessageToast)=>{
         "use strict";
         return Controller.extend("ui5.walkthrough.controller.App",{
-            //functions defined in the "App.view.xml"
+            /// Functions used in the "App.view.xml"
+
+            /**
+             * @description : This function is used to show the message toast
+             * @returns : void
+             */
             onShowHello : function(){
-                alert("Hello World!!!");
+                MessageToast.show("Hello World!!!");
             }
+            
         })
     }
 )
